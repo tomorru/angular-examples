@@ -1,3 +1,9 @@
+type c1PropertyType = {
+[key: string]: any;
+}
+
+...
+
    data?: c1PropertyType[] = [];
    
    ...
