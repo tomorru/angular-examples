@@ -1,0 +1,17 @@
+   data?: c1PropertyType[] = [];
+   
+   ...
+ 
+ private makeData(): void {
+    this.info?.defaultProperties?.forEach( (item) => {
+      let val = "{ \"property\":\"".concat(<string>item.grptId?.toString(), "\", ");
+      this.info?.c1Properties?.forEach( (colInfo,idx, array) => {
+          if ( colInfo.code != null ) {
+            val = val.concat("\"", colInfo.code.toString(), "\":", "\"0\"", idx=== array.length-1? "":"," );
+          }
+
+       });
+       val = val.concat(" }");
+       this.data?.push(JSON.parse(val ) );
+    });
+  }
